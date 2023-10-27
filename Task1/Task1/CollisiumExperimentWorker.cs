@@ -2,7 +2,7 @@ using Strategy;
 
 namespace Task1;
 
-public class Context
+public class CollisiumExperimentWorker
 {
     private IStrategy? _strategy;
     private readonly RomanGod _romanGod = new RomanGod();
@@ -37,6 +37,8 @@ public class Context
 
     private void EndGame()
     {
-        _romanGod.FreeTheDeck();
+        _romanGod.DiscardDeck();
+        _elon.DiscardDeck();
+        _mark.DiscardDeck();
     }
 }

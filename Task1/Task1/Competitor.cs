@@ -2,7 +2,6 @@ namespace Task1;
 
 public class Competitor
 {
-    private const int NumOfCards = 18;
     private List<Card> _cards = new List<Card>();
 
     public void SetNewCardDeck(List<Card> deck)
@@ -14,5 +13,10 @@ public class Competitor
     public Card GetCard(int num)
     {
         return _cards[num - 1];
+    }
+
+    public void DiscardDeck()
+    {
+        _cards.Clear();
     }
 }

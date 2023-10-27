@@ -35,8 +35,13 @@ public class RomanGod
         return _deck.GetRange(DeckSize / 2 - 1, DeckSize / 2);
     }
 
-    public void FreeTheDeck()
+    public void DiscardDeck()
     {
         _deck.Clear();
     }
 }
+
+//стратегия каждому игроку
+//колода отдельный класс
+//енам с цветом
+//вынеси всё в отдельную сборку

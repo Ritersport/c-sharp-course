@@ -13,4 +13,6 @@ public class Card
     {
         return _isRed;
     }
+
+    public bool IsRed => _isRed;
 }
