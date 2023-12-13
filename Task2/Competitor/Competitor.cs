@@ -5,7 +5,7 @@ namespace Competitor;
 
 public class Competitor : ICompetitor
 {
-    private IStrategy _strategy;
+    private readonly IStrategy _strategy;
     private Deck _deck;
     
 
@@ -21,9 +21,9 @@ public class Competitor : ICompetitor
 
     public Card GetCard()
     {
-        var num = _strategy.GetCardNumber();
+        var num = _strategy.GetCardNumber(_deck);
 
-        return _deck.GetCardByNumber(num - 1);
+        return _deck.GetCardByNumber(num);
     }
 
     public void ClearDeck()

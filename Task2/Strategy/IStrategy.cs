@@ -1,3 +1,5 @@
+using Model;
+
 namespace Strategy;
 
 public interface IStrategy : IServiceProvider
@@ -7,5 +9,5 @@ public interface IStrategy : IServiceProvider
         throw new NotImplementedException();
     }
 
-    int GetCardNumber();
+    int GetCardNumber(Deck deck);
 }

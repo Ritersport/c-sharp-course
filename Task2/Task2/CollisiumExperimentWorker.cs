@@ -10,7 +10,7 @@ public class CollisiumExperimentWorker : BackgroundService
 {
     private readonly ILogger<CollisiumExperimentWorker> _logger;
     private readonly Sandbox _sandbox;
-    private const int NumOfGames = 1000000;
+    private const int NumOfGames = 10000000;
     
     public CollisiumExperimentWorker(Sandbox sandbox, ILogger<CollisiumExperimentWorker> logger)
     {

@@ -2,7 +2,7 @@
 
 public class Card
 {
-    private CardColor _color;
+    private readonly CardColor _color;
 
     public Card(CardColor color)
     {

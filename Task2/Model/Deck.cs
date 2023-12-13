@@ -1,29 +1,35 @@
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices.JavaScript;
 
 namespace Model;
 
 public class Deck
 {
     private const int MaxDeckSize = 36;
-    private List<Card> _deck = new List<Card>(MaxDeckSize);
-    private int _numOfCards;
-    private int _numOfRedCards;
+    private readonly List<Card> _deck = new List<Card>(MaxDeckSize);
+    private readonly int _numOfCards;
+    private readonly int _numOfRedCards;
+    private readonly int _numOfBlackCards;
     private int _firstHalfRedCards;
 
     public Deck(int numOfCards, int numOfRedCards)
     {
         _numOfCards = numOfCards;
         _numOfRedCards = numOfRedCards;
+        _numOfBlackCards = numOfCards - numOfRedCards;
     }
+
+    public List<Card> GetCardList()
+    {
+        return _deck;
+    } 
 
     public int GetNumOfCards() => _numOfCards;
     public int GetNumOfRedCards() => _numOfRedCards;
     public int GetFirstHalfRedCards() => _firstHalfRedCards;
     
-    public Deck Shuffle()
+    public void Shuffle()
     {
         int redCardsCounter = 0;
+        int blackCardsCounter = 0;
         var rnd = new Random();
         _deck.Clear();
         for (int i = 0; i < _numOfCards; i++)
@@ -40,11 +46,18 @@ public class Deck
             }
             else
             {
-                _deck.Add(new Card(CardColor.Black));
+                if (_numOfBlackCards > blackCardsCounter)
+                {
+                    _deck.Add(new Card(CardColor.Black));
+                    blackCardsCounter++;
+                }
+                else
+                {
+                    _deck.Add(new Card(CardColor.Red));
+                }
             }
         }
 
-        return this;
     }
 
     public Card GetCardByNumber(int number)

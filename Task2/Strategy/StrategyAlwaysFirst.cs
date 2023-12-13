@@ -1,14 +1,13 @@
+using Model;
+
 namespace Strategy;
 
 public class StrategyAlwaysFirst : IStrategy
 {
-    public int GetCardNumber()
+    public int GetCardNumber(Deck deck)
     {
-        return 1;
+        return 0;
     }
 
-    public object? GetService(Type serviceType)
-    {
-        throw new NotImplementedException();
-    }
+  
 }
